@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>For Sibby 💕</title>
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #fff0f5, #ffe4ec);
+      font-family: "Georgia", serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .card, .final {
+      background: white;
+      padding: 30px 35px;
+      max-width: 420px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      text-align: center;
+      animation: fadeIn 2s ease;
+      z-index: 2;
+    }
+
+    .final {
+      display: none;
+    }
+
+    h1 {
+      color: #d6336c;
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #444;
+      font-size: 16px;
+      line-height: 1.6;
+      margin: 18px 0;
+    }
+
+    p.ps {
+      font-size: 14px;
+      color: #a33a66;
+      font-style: italic;
+      margin-top: 15px;
+      min-height: 20px; /* prevents jump while typing */
+    }
+
+    button {
+      background: #ff85a2;
+      color: white;
+      border: none;
+      padding: 12px 26px;
+      font-size: 16px;
+      border-radius: 25px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background: #ff6f91;
+    }
+
+    .heart {
+      position: absolute;
+      bottom: -20px;
+      font-size: 20px;
+      animation: floatUp 8s linear infinite;
+      opacity: 0.6;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeOut {
+      from { opacity: 1; }
+      to { opacity: 0; }
+    }
+
+    @keyframes floatUp {
+      from { transform: translateY(0); opacity: 0.6; }
+      to { transform: translateY(-110vh); opacity: 0; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- FIRST SCREEN -->
+  <div class="card" id="card">
+    <h1>Sibusiswe 💕</h1>
+
+    <p>
+      Hello my Sibby Sib Sibs! 💖<br>
+      You became my favorite place<br>
+      without either of us meaning to (We don't have the China love).
+    </p>
+
+    <p>
+      You make me laugh, you make me feel safe,<br>
+      and you hold my heart<br>
+      tight like a bootyhole 🤍
+    </p>
+
+    <p>
+      Will you be my Valentine? 💌
+    </p>
+
+    <button onclick="showFinal()">Yes, always 💖</button>
+  </div>
+
+  <!-- FINAL SCREEN -->
+  <div class="final" id="final">
+    <h1>Happy Valentine’s Day 💘</h1>
+
+    <p>
+      Thank you for choosing me,<br>
+      for being gentle with my heart,<br>
+      and for loving me in the quiet ways.
+    </p>
+
+    <p>
+      I’m so grateful for you,<br>
+      today and always.
+    </p>
+
+    <p>
+      — Lorraine 🤍
+    </p>
+
+    <p class="ps" id="ps"></p>
+  </div>
+
+  <script>
+    const psText = "P.S. It’s no longer plastic, baby 🙂. Our love could never be that cheap hahaha";
+    let psIndex = 0;
+
+    function typePS() {
+      const psElem = document.getElementById("ps");
+      if (psIndex < psText.length) {
+        psElem.innerHTML += psText[psIndex];
+        psIndex++;
+        setTimeout(typePS, 60); // typing speed in ms
+      }
+    }
+
+    function showFinal() {
+      const card = document.getElementById("card");
+      const final = document.getElementById("final");
+
+      card.style.animation = "fadeOut 1.5s ease forwards";
+
+      setTimeout(() => {
+        card.style.display = "none";
+        final.style.display = "block";
+        typePS(); // start typing after final screen appears
+      }, 1500);
+    }
+
+    // floating hearts
+    const hearts = ["🤍","💕","💖"];
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (6 + Math.random() * 4) + "s";
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 10000);
+    }, 900);
+  </script>
+
+</body>
+</html>
