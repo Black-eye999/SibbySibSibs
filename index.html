@@ -25,7 +25,7 @@
       background: rgba(255, 255, 255, 0.95);
       padding: 26px;
       border-radius: 18px;
-      max-width: 340px;
+      max-width: 360px;
       z-index: 2;
       box-shadow: 0 12px 28px rgba(0,0,0,0.18);
     }
@@ -53,8 +53,14 @@
     #response {
       display: none;
       margin-top: 18px;
-      font-weight: bold;
       font-size: 16px;
+      font-weight: bold;
+    }
+
+    .ps {
+      margin-top: 10px;
+      font-size: 14px;
+      font-style: italic;
     }
 
     /* Floating hearts */
@@ -84,9 +90,12 @@
     <h1>Happy Valentine’s Day, Sibby-sib ❤️</h1>
 
     <p>
-      To my Sibs —  
-      my heart holds you tightly…  
-      like a bootyhole 😌💖
+      We met each other and you became my favorite space without meaning to.
+      It has been the best part of life meeting you.
+    </p>
+
+    <p>
+      My heart holds you tightly… like a bootyhole 😌💖
     </p>
 
     <p>Will you be my Valentine?</p>
@@ -94,16 +103,22 @@
     <button onclick="sayYes()">Yes 💕</button>
 
     <p id="response">
-      See? It is no longer plastic, baby 🥰
+      Thank you for choosing me always.  
+      I love you — Lorraine
+    </p>
+
+    <p id="ps" class="ps" style="display:none;">
+      P.S. See? It is no longer plastic, baby 🥰
     </p>
   </div>
 
   <script>
     function sayYes() {
       document.getElementById("response").style.display = "block";
+      document.getElementById("ps").style.display = "block";
     }
 
-    // Floating hearts generator (iOS-safe)
+    // Floating hearts (iOS Safari–safe)
     function createHeart() {
       var heart = document.createElement("div");
       heart.className = "heart";
